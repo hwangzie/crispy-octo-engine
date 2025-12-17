@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Sertifikasi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Sistem Manajemen Sertifikasi</h1>
+            <p class="subtitle">Kelola sertifikat Anda dengan mudah</p>
+        </header>
+
+        <main>
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('create')">Buat Sertifikat</button>
+                <button class="tab-button" onclick="showTab('list')">Daftar Sertifikat</button>
+            </div>
+
+            <!-- Create Certificate Tab -->
+            <div id="create-tab" class="tab-content active">
+                <div class="card">
+                    <h2>Buat Sertifikat Baru</h2>
+                    <form id="certificate-form">
+                        <div class="form-group">
+                            <label for="participant-name">Nama Peserta *</label>
+                            <input type="text" id="participant-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course-name">Nama Kursus/Pelatihan *</label>
+                            <input type="text" id="course-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instructor-name">Nama Instruktur *</label>
+                            <input type="text" id="instructor-name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issue-date">Tanggal Penerbitan *</label>
+                                <input type="date" id="issue-date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Durasi (Jam) *</label>
+                                <input type="number" id="duration" min="1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Deskripsi</label>
+                            <textarea id="description" rows="3" placeholder="Deskripsi singkat tentang kursus..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Buat Sertifikat</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- List Certificates Tab -->
+            <div id="list-tab" class="tab-content">
+                <div class="card">
+                    <div class="list-header">
+                        <h2>Daftar Sertifikat</h2>
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Cari sertifikat...">
+                        </div>
+                    </div>
+
+                    <div id="certificates-list" class="certificates-list">
+                        <!-- Certificates will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Certificate Preview Modal -->
+        <div id="certificate-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="certificate-preview" class="certificate">
+                    <!-- Certificate content will be generated here -->
+                </div>
+                <div class="modal-actions">
+                    <button onclick="printCertificate()" class="btn btn-primary">Cetak/Simpan PDF</button>
+                    <button onclick="closeModal()" class="btn btn-secondary">Tutup</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Sistem Manajemen Sertifikasi. Dibuat untuk keperluan sertifikasi.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
